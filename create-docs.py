@@ -256,7 +256,7 @@ def create_external_proposal():
     qr_note = doc.add_paragraph()
     qr_note.alignment = WD_ALIGN_PARAGRAPH.CENTER
     qr_note.add_run('Scan QR Code for Interactive Presentation\n').bold = True
-    qr_note.add_run('https://investor-pitch-theta.vercel.app')
+    qr_note.add_run('https://investor-pitch.onestrategy.app')
     
     doc.save('External-Investor-Proposal-Laguna-Residence.docx')
     print('✅ Created: External-Investor-Proposal-Laguna-Residence.docx')
