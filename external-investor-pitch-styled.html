@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laguna Residence | Investor Memorandum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: #0a0a0f;
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 11pt;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm 20mm;
+            page-break-after: always;
+            position: relative;
+            background: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
+        }
+
+        .page:last-child {
+            page-break-after: avoid;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #D86DCB;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #D86DCB, #6366F1);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 30px;
+            font-size: 10pt;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 32pt;
+            background: linear-gradient(135deg, #ffffff, #D86DCB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+        }
+
+        .header .subtitle {
+            font-size: 14pt;
+            color: #a1a1aa;
+        }
+
+        /* Sections */
+        h2 {
+            font-size: 18pt;
+            color: #D86DCB;
+            margin: 30px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(216, 109, 203, 0.3);
+        }
+
+        h3 {
+            font-size: 13pt;
+            color: #E88DE1;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            color: #d4d4d8;
+            margin-bottom: 12px;
+        }
+
+        /* Hero Stats */
+        .hero-box {
+            background: linear-gradient(135deg, rgba(216, 109, 203, 0.15), rgba(99, 102, 241, 0.1));
+            border: 1px solid rgba(216, 109, 203, 0.3);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24pt;
+            font-weight: 700;
+            color: #D86DCB;
+        }
+
+        .stat-label {
+            font-size: 9pt;
+            color: #71717a;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 10pt;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(216, 109, 203, 0.2);
+        }
+
+        th {
+            background: rgba(216, 109, 203, 0.1);
+            color: #D86DCB;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 9pt;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        .table-total {
+            background: rgba(216, 109, 203, 0.15);
+            font-weight: 700;
+        }
+
+        .table-total td {
+            color: #D86DCB;
+        }
+
+        /* Calculator Box */
+        .calculator {
+            background: linear-gradient(135deg, rgba(216, 109, 203, 0.1), rgba(99, 102, 241, 0.1));
+            border: 1px solid rgba(216, 109, 203, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(216, 109, 203, 0.15);
+        }
+
+        .calc-row:last-child {
+            border-bottom: none;
+        }
+
+        .calc-row.total {
+            background: linear-gradient(135deg, #D86DCB, #6366F1);
+            margin: 15px -20px -20px;
+            padding: 15px 20px;
+            border-radius: 0 0 16px 16px;
+            font-weight: 700;
+            font-size: 12pt;
+        }
+
+        .green {
+            color: #22c55e;
+        }
+
+        /* Feature List */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 10pt;
+        }
+
+        .feature-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #D86DCB, #6366F1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14pt;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            text-align: center;
+            margin: 30px 0;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            border: 1px solid rgba(216, 109, 203, 0.2);
+        }
+
+        .qr-section img {
+            width: 150px;
+            height: 150px;
+            margin-bottom: 15px;
+        }
+
+        .qr-section p {
+            font-size: 10pt;
+            color: #a1a1aa;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 15mm;
+            left: 20mm;
+            right: 20mm;
+            text-align: center;
+            font-size: 8pt;
+            color: #71717a;
+            border-top: 1px solid rgba(216, 109, 203, 0.2);
+            padding-top: 10px;
+        }
+
+        /* Logo placeholder */
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 14pt;
+            color: #D86DCB;
+            margin-bottom: 20px;
+        }
+
+        .confidential {
+            position: absolute;
+            top: 10mm;
+            right: 20mm;
+            font-size: 8pt;
+            color: #71717a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1: Cover -->
+    <div class="page">
+        <div class="confidential">CONFIDENTIAL</div>
+        <div class="header" style="margin-top: 80px;">
+            <div class="logo">ONE DEVELOPMENT</div>
+            <span class="badge">Exclusive Investment Opportunity</span>
+            <h1>Laguna Residence</h1>
+            <p class="subtitle">Bulk Acquisition | Investor Memorandum</p>
+        </div>
+
+        <div class="hero-box" style="margin-top: 40px;">
+            <div class="stat-item">
+                <div class="stat-value">AED 893M</div>
+                <div class="stat-label">Portfolio Value</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">632</div>
+                <div class="stat-label">Premium Units</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">19%</div>
+                <div class="stat-label">Instant Equity</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">AED 170M</div>
+                <div class="stat-label">Day-1 Savings</div>
+            </div>
+        </div>
+
+        <h2>Deal Terms</h2>
+        <table>
+            <tr>
+                <th>Component</th>
+                <th>Rate</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Bulk Discount</td>
+                <td>10%</td>
+                <td>AED 89,327,124</td>
+            </tr>
+            <tr>
+                <td>Referral Commission</td>
+                <td>9%</td>
+                <td>AED 80,394,411</td>
+            </tr>
+            <tr class="table-total">
+                <td><strong>Total Savings</strong></td>
+                <td><strong>19%</strong></td>
+                <td><strong>AED 169,721,535</strong></td>
+            </tr>
+        </table>
+
+        <h3>Payment Terms</h3>
+        <p><strong>100% Upfront Cash Payment</strong> — Single transaction closing with immediate title transfer.</p>
+
+        <div class="footer">
+            © 2026 One Development | Abu Dhabi • Dubai | All Rights Reserved
+        </div>
+    </div>
+
+    <!-- PAGE 2: Portfolio & Calculator -->
+    <div class="page">
+        <div class="confidential">CONFIDENTIAL</div>
+        
+        <h2>Unit Portfolio</h2>
+        <table>
+            <tr>
+                <th>Type</th>
+                <th>Units</th>
+                <th>Avg. Price</th>
+                <th>Total Value</th>
+            </tr>
+            <tr>
+                <td>Studio</td>
+                <td>206</td>
+                <td>AED 855,140</td>
+                <td>AED 176,158,903</td>
+            </tr>
+            <tr>
+                <td>1 Bedroom</td>
+                <td>381</td>
+                <td>AED 1,619,963</td>
+                <td>AED 617,206,000</td>
+            </tr>
+            <tr>
+                <td>2 Bedroom</td>
+                <td>45</td>
+                <td>AED 2,220,141</td>
+                <td>AED 99,906,333</td>
+            </tr>
+            <tr class="table-total">
+                <td><strong>TOTAL</strong></td>
+                <td><strong>632</strong></td>
+                <td></td>
+                <td><strong>AED 893,271,236</strong></td>
+            </tr>
+        </table>
+        <p style="font-size: 9pt; color: #71717a; margin-top: 5px;">*Data sourced from Salesforce Unit__c (Base_Price__c) — January 30, 2026</p>
+
+        <h2>Investment Calculator</h2>
+        <div class="calculator">
+            <div class="calc-row">
+                <span>Gross Portfolio Value</span>
+                <span>AED 893,271,236</span>
+            </div>
+            <div class="calc-row">
+                <span>Less: Bulk Discount (10%)</span>
+                <span class="green">- AED 89,327,124</span>
+            </div>
+            <div class="calc-row">
+                <span>Less: Referral Commission (9%)</span>
+                <span class="green">- AED 80,394,411</span>
+            </div>
+            <div class="calc-row total">
+                <span>Your Investment</span>
+                <span>AED 723,549,701</span>
+            </div>
+        </div>
+
+        <h3>Rental Income Projection (Conservative 7% Yield)</h3>
+        <table>
+            <tr>
+                <td>Annual Gross Income</td>
+                <td style="text-align: right;">AED 62,528,987</td>
+            </tr>
+            <tr>
+                <td>Monthly Cash Flow</td>
+                <td style="text-align: right;">AED 5,210,749</td>
+            </tr>
+        </table>
+
+        <div class="footer">
+            © 2026 One Development | Abu Dhabi • Dubai | All Rights Reserved
+        </div>
+    </div>
+
+    <!-- PAGE 3: Project & CTA -->
+    <div class="page">
+        <div class="confidential">CONFIDENTIAL</div>
+        
+        <h2>Laguna Residence</h2>
+        <p><strong>Abu Dhabi's Premier Waterfront Address</strong></p>
+        <p>Located at Yas Bay, Laguna Residence is One Development's AED 2.1B+ flagship project offering resort-style waterfront living in Abu Dhabi's most dynamic entertainment corridor.</p>
+
+        <div class="features" style="margin-top: 20px;">
+            <div class="feature">
+                <div class="feature-icon">🌊</div>
+                <div>
+                    <strong>Waterfront Living</strong><br>
+                    <span style="color: #a1a1aa;">Direct Yas Bay access</span>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏊</div>
+                <div>
+                    <strong>Resort Amenities</strong><br>
+                    <span style="color: #a1a1aa;">Pools, beach club, spa</span>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">📈</div>
+                <div>
+                    <strong>7-9% Yield</strong><br>
+                    <span style="color: #a1a1aa;">Strong rental demand</span>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🎢</div>
+                <div>
+                    <strong>Prime Location</strong><br>
+                    <span style="color: #a1a1aa;">Ferrari World, F1, Marina</span>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏗️</div>
+                <div>
+                    <strong>AED 2.1B+ Project</strong><br>
+                    <span style="color: #a1a1aa;">One Development flagship</span>
+                </div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🏠</div>
+                <div>
+                    <strong>Smart Homes</strong><br>
+                    <span style="color: #a1a1aa;">Premium finishes</span>
+                </div>
+            </div>
+        </div>
+
+        <h2>About One Development</h2>
+        <p>UAE homegrown boutique developer delivering exceptional residential experiences across Abu Dhabi and Dubai.</p>
+        <ul style="margin-left: 20px; color: #d4d4d8;">
+            <li>Laguna Residence — Yas Bay, Abu Dhabi</li>
+            <li>DO Dubai Island — Dubai</li>
+            <li>Infinity One — Al Reem Island</li>
+            <li>DO New Cairo — Egypt</li>
+        </ul>
+
+        <div class="qr-section">
+            <img src="assets/qr-code-white.png" alt="QR Code">
+            <p><strong>Scan for Interactive Presentation</strong></p>
+            <p style="font-size: 9pt;">invest.onedevelopment.ae/laguna-893m</p>
+        </div>
+
+        <h2>Next Steps</h2>
+        <ol style="margin-left: 20px; color: #d4d4d8;">
+            <li>Review this memorandum</li>
+            <li>Schedule site visit and due diligence</li>
+            <li>Reserve your portfolio allocation</li>
+            <li>Execute SPA and payment</li>
+            <li>Receive immediate title transfer</li>
+        </ol>
+
+        <div class="footer">
+            <strong>CONFIDENTIALITY NOTICE:</strong> Terms valid for 14 days. Past performance is not indicative of future results.<br>
+            © 2026 One Development | Abu Dhabi • Dubai | All Rights Reserved
+        </div>
+    </div>
+</body>
+</html>

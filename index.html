@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laguna Residence | Exclusive Investment Opportunity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-glass: rgba(18, 18, 26, 0.7);
+            --accent: #D86DCB;
+            --accent-bright: #E88DE1;
+            --gradient-start: #D86DCB;
+            --gradient-mid: #A855F7;
+            --gradient-end: #6366F1;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+            --border: rgba(216, 109, 203, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(216, 109, 203, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                var(--bg-dark);
+            z-index: -1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(216, 109, 203, 0.2) 0%, transparent 70%);
+            filter: blur(100px);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary), var(--accent-bright));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(216, 109, 203, 0.15);
+        }
+
+        /* Deal Terms Grid */
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .term-card {
+            text-align: center;
+            padding: 2.5rem;
+        }
+
+        .term-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+        }
+
+        .term-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .term-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .term-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Unit Mix Table */
+        .table-container {
+            overflow-x: auto;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1rem;
+        }
+
+        th, td {
+            padding: 1.25rem 1.5rem;
+            text-align: left;
+        }
+
+        th {
+            background: rgba(216, 109, 203, 0.1);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
+            color: var(--accent);
+        }
+
+        tr {
+            border-bottom: 1px solid var(--border);
+        }
+
+        tr:last-child {
+            border-bottom: none;
+        }
+
+        tr:hover td {
+            background: rgba(216, 109, 203, 0.05);
+        }
+
+        .table-total {
+            font-weight: 700;
+            background: rgba(216, 109, 203, 0.1);
+        }
+
+        .table-total td {
+            color: var(--accent);
+        }
+
+        /* Calculator */
+        .calculator {
+            background: linear-gradient(135deg, rgba(216, 109, 203, 0.1), rgba(99, 102, 241, 0.1));
+            border-radius: 24px;
+            padding: 3rem;
+            border: 1px solid var(--border);
+        }
+
+        .calc-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .calc-row:last-child {
+            border-bottom: none;
+        }
+
+        .calc-row.total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--accent);
+        }
+
+        .calc-row.savings {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            margin: 2rem -3rem -3rem;
+            padding: 2rem 3rem;
+            border-radius: 0 0 24px 24px;
+        }
+
+        .calc-row.savings span {
+            color: white;
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+        }
+
+        .feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .feature-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, transparent, rgba(216, 109, 203, 0.05));
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            font-size: 1.2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(216, 109, 203, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(216, 109, 203, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-stats {
+                gap: 2rem;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .calculator {
+                padding: 2rem;
+            }
+
+            .calc-row.savings {
+                margin: 2rem -2rem -2rem;
+                padding: 1.5rem 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <span class="badge">Exclusive Investment Opportunity</span>
+        <h1>Laguna Residence</h1>
+        <p class="hero-subtitle">Abu Dhabi's premier waterfront development. 632 units. AED 893 million. 19% Day-1 Equity.</p>
+        
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-value">AED 893M</div>
+                <div class="stat-label">Portfolio Value</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">632</div>
+                <div class="stat-label">Premium Units</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">19%</div>
+                <div class="stat-label">Instant Equity</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">AED 170M</div>
+                <div class="stat-label">Day-1 Savings</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal Terms -->
+    <section>
+        <h2 class="section-title">Deal Structure</h2>
+        <p class="section-subtitle">Exceptional terms designed for institutional investors seeking immediate value creation.</p>
+        
+        <div class="terms-grid">
+            <div class="glass-card term-card">
+                <div class="term-icon">💰</div>
+                <h3>Bulk Discount</h3>
+                <div class="term-value">10%</div>
+                <p>AED 89,327,124 off portfolio value</p>
+            </div>
+            <div class="glass-card term-card">
+                <div class="term-icon">🤝</div>
+                <h3>Referral Commission</h3>
+                <div class="term-value">9%</div>
+                <p>AED 80,394,411 additional value</p>
+            </div>
+            <div class="glass-card term-card">
+                <div class="term-icon">⚡</div>
+                <h3>Payment Terms</h3>
+                <div class="term-value">100%</div>
+                <p>Upfront cash. Immediate ownership.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unit Portfolio -->
+    <section>
+        <h2 class="section-title">Unit Portfolio</h2>
+        <p class="section-subtitle">Diversified mix across all unit types for maximum rental yield optimization.</p>
+        
+        <div class="table-container glass-card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unit Type</th>
+                        <th>Quantity</th>
+                        <th>Avg. Price</th>
+                        <th>Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Studio</td>
+                        <td>206 units</td>
+                        <td>AED 855,140</td>
+                        <td>AED 176,158,903</td>
+                    </tr>
+                    <tr>
+                        <td>1 Bedroom</td>
+                        <td>381 units</td>
+                        <td>AED 1,619,963</td>
+                        <td>AED 617,206,000</td>
+                    </tr>
+                    <tr>
+                        <td>2 Bedroom</td>
+                        <td>45 units</td>
+                        <td>AED 2,220,141</td>
+                        <td>AED 99,906,333</td>
+                    </tr>
+                    <tr class="table-total">
+                        <td><strong>TOTAL</strong></td>
+                        <td><strong>632 units</strong></td>
+                        <td></td>
+                        <td><strong>AED 893,271,236</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Investment Calculator -->
+    <section>
+        <h2 class="section-title">Investment Calculator</h2>
+        <p class="section-subtitle">Transparent breakdown of your investment and immediate equity position.</p>
+        
+        <div class="calculator">
+            <div class="calc-row">
+                <span>Gross Portfolio Value</span>
+                <span>AED 893,271,236</span>
+            </div>
+            <div class="calc-row">
+                <span>Less: Bulk Discount (10%)</span>
+                <span style="color: #22c55e;">- AED 89,327,124</span>
+            </div>
+            <div class="calc-row">
+                <span>Less: Referral Commission (9%)</span>
+                <span style="color: #22c55e;">- AED 80,394,411</span>
+            </div>
+            <div class="calc-row total">
+                <span>Your Investment</span>
+                <span>AED 723,549,701</span>
+            </div>
+            <div class="calc-row savings">
+                <span>🎉 Day-1 Equity Created</span>
+                <span>AED 169,721,535 (19%)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Features -->
+    <section>
+        <h2 class="section-title">Laguna Residence</h2>
+        <p class="section-subtitle">Abu Dhabi's flagship waterfront development at Yas Bay.</p>
+        
+        <div class="glass-card">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🌊</div>
+                    <div>
+                        <h4>Waterfront Living</h4>
+                        <p>Direct access to Yas Bay promenade</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏊</div>
+                    <div>
+                        <h4>Resort Amenities</h4>
+                        <p>Infinity pools, beach club, spa</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">📈</div>
+                    <div>
+                        <h4>7-9% Yield</h4>
+                        <p>Strong rental demand in Yas corridor</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎢</div>
+                    <div>
+                        <h4>Prime Location</h4>
+                        <p>Ferrari World, Yas Marina, F1 track</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏗️</div>
+                    <div>
+                        <h4>AED 2.1B+ Project</h4>
+                        <p>Flagship development by One Development</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏠</div>
+                    <div>
+                        <h4>Smart Homes</h4>
+                        <p>Premium finishes, smart technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready to Invest?</h2>
+        <p>Schedule your exclusive site visit and due diligence session.</p>
+        <a href="mailto:invest@onedevelopment.ae" class="cta-button">Request Information</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>One Development</strong> | Abu Dhabi • Dubai</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem;">
+            This document contains confidential information. Terms valid for 14 days.<br>
+            © 2026 One Development. All Rights Reserved.
+        </p>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.glass-card, .calculator, .table-container').forEach(el => {
+            el.classList.add('animate-on-scroll');
+            observer.observe(el);
+        });
+
+        // Number counter animation
+        function animateValue(element, start, end, duration) {
+            const startTimestamp = performance.now();
+            const step = (timestamp) => {
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const current = Math.floor(progress * (end - start) + start);
+                element.textContent = current.toLocaleString();
+                if (progress < 1) {
+                    requestAnimationFrame(step);
+                }
+            };
+            requestAnimationFrame(step);
+        }
+    </script>
+</body>
+</html>

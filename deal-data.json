@@ -1,0 +1,59 @@
+{
+  "deal": {
+    "name": "Laguna Residence Bulk Acquisition",
+    "project": "Laguna Residence",
+    "developer": "One Development",
+    "location": "Yas Bay, Abu Dhabi",
+    "totalValue": 893271236,
+    "totalValueRounded": 893000000,
+    "currency": "AED",
+    "terms": {
+      "referralCommission": 0.09,
+      "paymentStructure": "100% Upfront Cash",
+      "bulkDiscount": 0.10,
+      "netDiscount": 0.19
+    }
+  },
+  "unitMix": {
+    "studio": {
+      "count": 206,
+      "avgPrice": 855140,
+      "subtotal": 176158903
+    },
+    "oneBedroom": {
+      "count": 381,
+      "avgPrice": 1619963,
+      "subtotal": 617206000
+    },
+    "twoBedroom": {
+      "count": 45,
+      "avgPrice": 2220141,
+      "subtotal": 99906333
+    }
+  },
+  "totals": {
+    "totalUnits": 632,
+    "grossValue": 893271236,
+    "commission9pct": 80394411,
+    "discount10pct": 89327124,
+    "totalSavings": 169721535,
+    "investorPays": 723549701,
+    "investorPaysRounded": 724000000
+  },
+  "yields": {
+    "conservative7pct": {
+      "annual": 62528987,
+      "monthly": 5210749
+    },
+    "moderate8pct": {
+      "annual": 71461699,
+      "monthly": 5955142
+    }
+  },
+  "sourceData": {
+    "dataSource": "Salesforce Unit__c",
+    "queryDate": "2026-01-30",
+    "statusFilter": ["Available", "Blocked"],
+    "priceField": "Base_Price__c"
+  }
+}
