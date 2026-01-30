@@ -78,6 +78,7 @@
 
         .nav-logo {
             height: 40px;
+            /* Logo is already white in SVG */
         }
 
         .nav-links {
@@ -132,8 +133,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('assets/laguna-thumbnail.jpg') center/cover;
-            opacity: 0.15;
+            background: url('assets/laguna-full1.jpg') center/cover;
+            opacity: 0.2;
             z-index: -1;
         }
 
@@ -308,6 +309,30 @@
             transform: scale(1.05);
         }
 
+        .gallery-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
             .gallery {
                 grid-template-columns: 1fr;
@@ -320,6 +345,12 @@
             }
             .gallery-side-item {
                 height: 150px;
+            }
+            .gallery-row {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item {
+                height: 200px;
             }
         }
 
@@ -571,8 +602,8 @@
         }
 
         .developer-logo img {
-            max-width: 200px;
-            filter: brightness(0) invert(1);
+            max-width: 220px;
+            /* SVG is already white, no filter needed */
         }
 
         .developer-info h3 {
@@ -703,7 +734,7 @@
 
     <!-- Navigation -->
     <nav class="nav">
-        <img src="assets/one-logo.png" alt="One Development" class="nav-logo">
+        <img src="assets/one-logo-white.svg" alt="One Development" class="nav-logo">
         <ul class="nav-links">
             <li><a href="#deal">Deal Structure</a></li>
             <li><a href="#portfolio">Portfolio</a></li>
@@ -743,17 +774,33 @@
 
     <!-- Gallery -->
     <section>
+        <h2 class="section-title">Project Gallery</h2>
+        <p class="section-subtitle">Premium residential development with world-class amenities and stunning architecture.</p>
+        
         <div class="gallery">
             <div class="gallery-main">
-                <img src="assets/laguna-thumbnail.jpg" alt="Laguna Residence Dubai">
+                <img src="assets/laguna-full1.jpg" alt="Laguna Residence Dubai - Exterior">
             </div>
             <div class="gallery-side">
                 <div class="gallery-side-item">
-                    <img src="assets/laguna-1.jpg" alt="Laguna Residence Interior">
+                    <img src="assets/laguna-full2.jpg" alt="Laguna Residence - Pool & Amenities">
                 </div>
                 <div class="gallery-side-item">
-                    <img src="assets/laguna-2.jpg" alt="Laguna Residence Amenities">
+                    <img src="assets/laguna-full3.jpg" alt="Laguna Residence - Interior">
                 </div>
+            </div>
+        </div>
+        
+        <!-- Additional Images Row -->
+        <div class="gallery-row">
+            <div class="gallery-item">
+                <img src="assets/laguna-full4.jpg" alt="Laguna Residence - Living Space">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/laguna-1.jpg" alt="Laguna Residence - Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="assets/laguna-2.jpg" alt="Laguna Residence - Amenities">
             </div>
         </div>
     </section>
@@ -935,7 +982,7 @@
     <section>
         <div class="developer-section">
             <div class="developer-logo">
-                <img src="assets/one-logo.png" alt="One Development">
+                <img src="assets/one-logo-white.svg" alt="One Development">
             </div>
             <div class="developer-info">
                 <h3>About One Development</h3>
