@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laguna Residence | Exclusive Investment Opportunity</title>
+    <title>Laguna Residence | Exclusive Investment Opportunity | One Development</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-dark: #0a0a0f;
             --bg-card: #12121a;
-            --bg-glass: rgba(18, 18, 26, 0.7);
+            --bg-glass: rgba(18, 18, 26, 0.8);
             --accent: #D86DCB;
             --accent-bright: #E88DE1;
+            --accent-gold: #C9A962;
             --gradient-start: #D86DCB;
             --gradient-mid: #A855F7;
             --gradient-end: #6366F1;
@@ -20,12 +21,17 @@
             --text-secondary: #a1a1aa;
             --text-muted: #71717a;
             --border: rgba(216, 109, 203, 0.2);
+            --success: #22c55e;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -48,10 +54,63 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(ellipse at 20% 20%, rgba(216, 109, 203, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 20% 20%, rgba(216, 109, 203, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
                 var(--bg-dark);
             z-index: -1;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(216, 109, 203, 0.3);
         }
 
         /* Hero Section */
@@ -62,8 +121,20 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 8rem 2rem 4rem;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('assets/laguna-thumbnail.jpg') center/cover;
+            opacity: 0.15;
+            z-index: -1;
         }
 
         .hero::before {
@@ -72,73 +143,95 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(216, 109, 203, 0.2) 0%, transparent 70%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(216, 109, 203, 0.15) 0%, transparent 70%);
             filter: blur(100px);
             animation: pulse 8s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+            0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.7; transform: translate(-50%, -50%) scale(1.15); }
         }
 
         .badge {
             display: inline-block;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.8rem;
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             border-radius: 50px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 2rem;
             animation: fadeInUp 0.8s ease;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(3rem, 10vw, 6rem);
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: fadeInUp 0.8s ease 0.2s both;
         }
 
+        .hero-location {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
         .hero-subtitle {
-            font-size: clamp(1rem, 2.5vw, 1.5rem);
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
             color: var(--text-secondary);
-            max-width: 600px;
+            max-width: 700px;
             margin-bottom: 3rem;
             animation: fadeInUp 0.8s ease 0.4s both;
         }
 
         .hero-stats {
-            display: flex;
-            gap: 3rem;
-            flex-wrap: wrap;
-            justify-content: center;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 900px;
             animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        @media (max-width: 768px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         .stat {
             text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
         }
 
         .stat-value {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--accent);
+            line-height: 1.2;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: var(--text-muted);
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-top: 0.5rem;
         }
 
         /* Sections */
@@ -149,7 +242,7 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             text-align: center;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, var(--text-primary), var(--accent-bright));
@@ -164,6 +257,70 @@
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            font-size: 1.1rem;
+        }
+
+        /* Image Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-main {
+            border-radius: 24px;
+            overflow: hidden;
+            height: 400px;
+        }
+
+        .gallery-main img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-main:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-side {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .gallery-side-item {
+            flex: 1;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .gallery-side-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-side-item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+            .gallery-main {
+                height: 300px;
+            }
+            .gallery-side {
+                flex-direction: row;
+            }
+            .gallery-side-item {
+                height: 150px;
+            }
         }
 
         /* Glass Cards */
@@ -207,12 +364,12 @@
         }
 
         .term-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 0.5rem;
         }
 
         .term-value {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: var(--accent);
             margin-bottom: 0.5rem;
@@ -226,8 +383,10 @@
         /* Unit Mix Table */
         .table-container {
             overflow-x: auto;
-            border-radius: 16px;
+            border-radius: 20px;
             border: 1px solid var(--border);
+            background: var(--bg-glass);
+            backdrop-filter: blur(20px);
         }
 
         table {
@@ -285,6 +444,7 @@
             justify-content: space-between;
             padding: 1rem 0;
             border-bottom: 1px solid var(--border);
+            font-size: 1.1rem;
         }
 
         .calc-row:last-child {
@@ -292,7 +452,7 @@
         }
 
         .calc-row.total {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--accent);
             margin-top: 1rem;
@@ -310,61 +470,153 @@
         .calc-row.savings span {
             color: white;
             font-weight: 700;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
         }
 
-        /* Features */
-        .features-grid {
+        .green {
+            color: var(--success);
+        }
+
+        /* Project Highlights */
+        .highlights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
 
-        .feature-item {
+        .highlight-card {
             display: flex;
             align-items: flex-start;
             gap: 1rem;
             padding: 1.5rem;
         }
 
-        .feature-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        .highlight-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
             background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 1.25rem;
+            font-size: 1.5rem;
         }
 
-        .feature-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.25rem;
+        .highlight-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.3rem;
         }
 
-        .feature-item p {
+        .highlight-card p {
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+        }
+
+        /* Project Specs */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .spec-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-glass);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .spec-item .label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .spec-item .value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Developer Section */
+        .developer-section {
+            background: var(--bg-glass);
+            border-radius: 24px;
+            padding: 4rem;
+            border: 1px solid var(--border);
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .developer-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 2rem;
+            }
+        }
+
+        .developer-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .developer-logo img {
+            max-width: 200px;
+            filter: brightness(0) invert(1);
+        }
+
+        .developer-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .developer-info p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .developer-portfolio {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .portfolio-tag {
+            background: rgba(216, 109, 203, 0.15);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
         }
 
         /* CTA Section */
         .cta-section {
             text-align: center;
             padding: 8rem 2rem;
-            background: linear-gradient(180deg, transparent, rgba(216, 109, 203, 0.05));
+            background: linear-gradient(180deg, transparent, rgba(216, 109, 203, 0.08));
+            position: relative;
         }
 
         .cta-section h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
         }
 
         .cta-section p {
             color: var(--text-secondary);
             margin-bottom: 3rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .cta-button {
@@ -424,25 +676,24 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-stats {
-                gap: 2rem;
+            .nav {
+                padding: 1rem 1.5rem;
             }
-            
-            .stat-value {
-                font-size: 2rem;
+            .nav-links {
+                display: none;
             }
-
             section {
                 padding: 4rem 1.5rem;
             }
-
             .calculator {
                 padding: 2rem;
             }
-
             .calc-row.savings {
                 margin: 2rem -2rem -2rem;
                 padding: 1.5rem 2rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -450,11 +701,25 @@
 <body>
     <div class="bg-gradient"></div>
 
+    <!-- Navigation -->
+    <nav class="nav">
+        <img src="assets/one-logo.png" alt="One Development" class="nav-logo">
+        <ul class="nav-links">
+            <li><a href="#deal">Deal Structure</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#project">The Project</a></li>
+            <li><a href="#calculator">Calculator</a></li>
+        </ul>
+        <a href="mailto:invest@onedevelopment.ae" class="nav-cta">Request Info</a>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-bg-image"></div>
         <span class="badge">Exclusive Investment Opportunity</span>
         <h1>Laguna Residence</h1>
-        <p class="hero-subtitle">Abu Dhabi's premier waterfront development. 632 units. AED 893 million. 19% Day-1 Equity.</p>
+        <p class="hero-location">Dubai, United Arab Emirates</p>
+        <p class="hero-subtitle">Modern lifestyle-driven residential development by One Development. 632 premium units. AED 893 million portfolio. 19% Day-1 Equity.</p>
         
         <div class="hero-stats">
             <div class="stat">
@@ -476,8 +741,25 @@
         </div>
     </section>
 
-    <!-- Deal Terms -->
+    <!-- Gallery -->
     <section>
+        <div class="gallery">
+            <div class="gallery-main">
+                <img src="assets/laguna-thumbnail.jpg" alt="Laguna Residence Dubai">
+            </div>
+            <div class="gallery-side">
+                <div class="gallery-side-item">
+                    <img src="assets/laguna-1.jpg" alt="Laguna Residence Interior">
+                </div>
+                <div class="gallery-side-item">
+                    <img src="assets/laguna-2.jpg" alt="Laguna Residence Amenities">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deal Terms -->
+    <section id="deal">
         <h2 class="section-title">Deal Structure</h2>
         <p class="section-subtitle">Exceptional terms designed for institutional investors seeking immediate value creation.</p>
         
@@ -504,11 +786,11 @@
     </section>
 
     <!-- Unit Portfolio -->
-    <section>
+    <section id="portfolio">
         <h2 class="section-title">Unit Portfolio</h2>
         <p class="section-subtitle">Diversified mix across all unit types for maximum rental yield optimization.</p>
         
-        <div class="table-container glass-card">
+        <div class="table-container">
             <table>
                 <thead>
                     <tr>
@@ -546,10 +828,29 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="specs-grid">
+            <div class="spec-item">
+                <div class="label">Unit Sizes</div>
+                <div class="value">1,500 - 3,800 sqft</div>
+            </div>
+            <div class="spec-item">
+                <div class="label">Starting Price</div>
+                <div class="value">AED 600,000</div>
+            </div>
+            <div class="spec-item">
+                <div class="label">Payment Plan</div>
+                <div class="value">50/50</div>
+            </div>
+            <div class="spec-item">
+                <div class="label">Handover</div>
+                <div class="value">Q4 2027</div>
+            </div>
+        </div>
     </section>
 
     <!-- Investment Calculator -->
-    <section>
+    <section id="calculator">
         <h2 class="section-title">Investment Calculator</h2>
         <p class="section-subtitle">Transparent breakdown of your investment and immediate equity position.</p>
         
@@ -560,11 +861,11 @@
             </div>
             <div class="calc-row">
                 <span>Less: Bulk Discount (10%)</span>
-                <span style="color: #22c55e;">- AED 89,327,124</span>
+                <span class="green">- AED 89,327,124</span>
             </div>
             <div class="calc-row">
                 <span>Less: Referral Commission (9%)</span>
-                <span style="color: #22c55e;">- AED 80,394,411</span>
+                <span class="green">- AED 80,394,411</span>
             </div>
             <div class="calc-row total">
                 <span>Your Investment</span>
@@ -578,53 +879,74 @@
     </section>
 
     <!-- Project Features -->
-    <section>
+    <section id="project">
         <h2 class="section-title">Laguna Residence</h2>
-        <p class="section-subtitle">Abu Dhabi's flagship waterfront development at Yas Bay.</p>
+        <p class="section-subtitle">Modern lifestyle-driven residential development in Dubai's thriving real estate market.</p>
         
         <div class="glass-card">
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">🌊</div>
+            <div class="highlights-grid">
+                <div class="highlight-card">
+                    <div class="highlight-icon">🏙️</div>
                     <div>
-                        <h4>Waterfront Living</h4>
-                        <p>Direct access to Yas Bay promenade</p>
+                        <h4>Prime Dubai Location</h4>
+                        <p>Strategic positioning in Dubai's growth corridor</p>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🏊</div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🏊</div>
                     <div>
-                        <h4>Resort Amenities</h4>
-                        <p>Infinity pools, beach club, spa</p>
+                        <h4>Resort-Style Amenities</h4>
+                        <p>Pools, fitness centers, and lifestyle facilities</p>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">📈</div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">📈</div>
                     <div>
-                        <h4>7-9% Yield</h4>
-                        <p>Strong rental demand in Yas corridor</p>
+                        <h4>7-9% Projected Yield</h4>
+                        <p>Strong rental demand in Dubai market</p>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🎢</div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🏗️</div>
                     <div>
-                        <h4>Prime Location</h4>
-                        <p>Ferrari World, Yas Marina, F1 track</p>
+                        <h4>Q4 2027 Handover</h4>
+                        <p>On-track construction timeline</p>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🏗️</div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🏠</div>
                     <div>
-                        <h4>AED 2.1B+ Project</h4>
-                        <p>Flagship development by One Development</p>
+                        <h4>Modern Design</h4>
+                        <p>Contemporary finishes and smart layouts</p>
                     </div>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">🏠</div>
+                <div class="highlight-card">
+                    <div class="highlight-icon">🌟</div>
                     <div>
-                        <h4>Smart Homes</h4>
-                        <p>Premium finishes, smart technology</p>
+                        <h4>Future-Ready</h4>
+                        <p>Designed for long-term livability and value</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer -->
+    <section>
+        <div class="developer-section">
+            <div class="developer-logo">
+                <img src="assets/one-logo.png" alt="One Development">
+            </div>
+            <div class="developer-info">
+                <h3>About One Development</h3>
+                <p>ONE Development is a real estate developer dedicated to creating lifestyle-driven, future-ready destinations in high-potential markets. Each project is approached as a holistic living experience, harmonizing modern comfort standards with thoughtful planning.</p>
+                <div class="developer-portfolio">
+                    <span class="portfolio-tag">Dubai, UAE</span>
+                    <span class="portfolio-tag">Abu Dhabi, UAE</span>
+                    <span class="portfolio-tag">Ras Al Khaimah, UAE</span>
+                    <span class="portfolio-tag">New Cairo, Egypt</span>
+                    <span class="portfolio-tag">Riyadh, Saudi Arabia</span>
+                    <span class="portfolio-tag">Athens, Greece</span>
                 </div>
             </div>
         </div>
@@ -639,7 +961,7 @@
 
     <!-- Footer -->
     <footer>
-        <p><strong>One Development</strong> | Abu Dhabi • Dubai</p>
+        <p><strong>One Development</strong> | Dubai • Abu Dhabi • Ras Al Khaimah</p>
         <p style="margin-top: 1rem; font-size: 0.8rem;">
             This document contains confidential information. Terms valid for 14 days.<br>
             © 2026 One Development. All Rights Reserved.
@@ -661,24 +983,20 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.glass-card, .calculator, .table-container').forEach(el => {
+        document.querySelectorAll('.glass-card, .calculator, .table-container, .developer-section').forEach(el => {
             el.classList.add('animate-on-scroll');
             observer.observe(el);
         });
 
-        // Number counter animation
-        function animateValue(element, start, end, duration) {
-            const startTimestamp = performance.now();
-            const step = (timestamp) => {
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const current = Math.floor(progress * (end - start) + start);
-                element.textContent = current.toLocaleString();
-                if (progress < 1) {
-                    requestAnimationFrame(step);
-                }
-            };
-            requestAnimationFrame(step);
-        }
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>

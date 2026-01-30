@@ -96,11 +96,19 @@ def create_external_proposal():
     project_info.add_run('Project: ').bold = True
     project_info.add_run('Laguna Residence\n')
     project_info.add_run('Location: ').bold = True
-    project_info.add_run('Yas Bay, Abu Dhabi – UAE\n')
+    project_info.add_run('Dubai – UAE\n')
     project_info.add_run('Developer: ').bold = True
     project_info.add_run('One International Real Estate Development LLC\n')
     project_info.add_run('Total Units: ').bold = True
-    project_info.add_run(str(deal['totals']['totalUnits']))
+    project_info.add_run(str(deal['totals']['totalUnits']) + '\n')
+    project_info.add_run('Unit Types: ').bold = True
+    project_info.add_run('Studio – 3 Bedroom\n')
+    project_info.add_run('Size Range: ').bold = True
+    project_info.add_run('1,500 – 3,800 sqft\n')
+    project_info.add_run('Handover: ').bold = True
+    project_info.add_run('Q4 2027\n')
+    project_info.add_run('Payment Plan: ').bold = True
+    project_info.add_run('50/50')
     
     # Unit Mix Table
     doc.add_heading('Unit Portfolio', level=2)
@@ -226,13 +234,21 @@ def create_external_proposal():
     disclaimer.add_run(' and subject to confirmation following completion of due diligence, regulatory approvals, and final investor agreement.\n\n')
     disclaimer.add_run('Nothing herein constitutes an offer or commitment until formal binding documentation is executed by the Parties.')
     
+    # About One Development
+    doc.add_heading('8. About One Development', level=1)
+    
+    about = doc.add_paragraph()
+    about.add_run('ONE Development is a real estate developer dedicated to creating lifestyle-driven, future-ready destinations in high-potential markets. Each project is approached as a holistic living experience, harmonizing modern comfort standards with thoughtful planning.\n\n')
+    about.add_run('Portfolio Locations: ').bold = True
+    about.add_run('Dubai • Abu Dhabi • Ras Al Khaimah • New Cairo • Riyadh • Athens')
+    
     doc.add_paragraph()
     
     # Signature
     sig = doc.add_paragraph()
     sig.add_run('Prepared by:\n').bold = True
     sig.add_run('One International Real Estate Development LLC\n').bold = True
-    sig.add_run('Abu Dhabi – United Arab Emirates\n')
+    sig.add_run('Dubai – United Arab Emirates\n')
     sig.add_run(f'Date: {datetime.now().strftime("%d %B %Y")}')
     
     # QR Code note
