@@ -4,7 +4,7 @@ const path = require('path');
 
 // Generate QR code for the investor pitch webpage
 // URL will be updated once deployed
-const PLACEHOLDER_URL = 'https://investor-pitch-theta.vercel.app';
+const PLACEHOLDER_URL = 'https://investor-pitch.onestrategy.app';
 
 async function generateQR() {
     const outputPath = path.join(__dirname, 'assets', 'qr-code.png');
